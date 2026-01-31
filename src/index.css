@@ -1449,3 +1449,38 @@ All colors MUST be HSL.
     font-size: 1rem;
   }
 }
+
+/* --- SEMBUNYIKAN TOMBOL MUSIK DI KANAN ATAS --- */
+
+/* 1. Mencari elemen berdasarkan posisinya (kanan atas) */
+button.fixed.top-4.right-4,
+button.fixed.top-5.right-5,
+div.fixed.top-4.right-4,
+.music-player-container,
+.music-control,
+[aria-label*="music"],
+[aria-label*="audio"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Animasi untuk membuat hati terbang ke atas */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Class yang dipanggil di kode apps.jsx tadi */
+.balloon {
+  animation: floatUp 10s linear infinite;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10;
+}

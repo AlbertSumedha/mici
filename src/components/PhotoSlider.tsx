@@ -1,30 +1,21 @@
-
 import React, { useState, useEffect } from 'react';
 
 const PhotoSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
-  // Placeholder images - replace with your actual photos
   const photos = [
-  "https://images.unsplash.com/photo-1627964464837-6328f5931576?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // couple holding hands
-
-  "https://images.unsplash.com/photo-1627964807070-e19d3ca29bdb?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // couple in sunset
-
-  "https://plus.unsplash.com/premium_photo-1661367626996-6e75af974221?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // hugging moment
-
-  "https://plus.unsplash.com/premium_photo-1722686421604-ddcbd5dfa50e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // walking in nature
-  
-  "https://plus.unsplash.com/premium_photo-1658506814710-931319e429b0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  // cozy in the snow
-];
-
-
-  const captions = [
-    "Our first adventure together",
-    "That magical sunset",
-    "When you made me laugh so hard",
-    "Our perfect day",
-    "The moment I knew you were the one"
+    "/photobooth1.jpeg",
+    "/photobooth2.jpeg",
+    "/photobooth3.jpeg"
   ];
+
+  // LOGIKA PRELOADING: Memastikan semua gambar dimuat di awal
+  useEffect(() => {
+    photos.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [photos]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,16 +30,37 @@ const PhotoSlider = () => {
       <h2 className="slider-title">Our Beautiful Memories</h2>
       <div className="slider-wrapper">
         <div className="slider-content">
-          <div className="photo-frame">
-            <img 
-              src={photos[currentSlide]} 
-              alt={captions[currentSlide]}
-              className="slider-image slider-image-animated"
-              key={currentSlide}
-            />
-            <div className="photo-overlay">
-              <p className="photo-caption">{captions[currentSlide]}</p>
-            </div>
+          <div className="photo-frame" style={{ 
+            position: 'relative', 
+            overflow: 'hidden',
+            backgroundColor: 'transparent' // Hindari warna putih saat transisi
+          }}>
+            
+            {photos.map((photo, index) => (
+              <img 
+                key={index}
+                src={photo} 
+                alt={`Memory ${index + 1}`}
+                className="slider-image"
+                style={{
+                  position: 'absolute', // Gunakan absolute untuk semua agar tumpukan sempurna
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  // Transisi opacity ditingkatkan
+                  transition: 'opacity 2000ms ease-in-out, visibility 2000ms ease-in-out',
+                  opacity: currentSlide === index ? 1 : 0,
+                  visibility: currentSlide === index ? 'visible' : 'hidden', // Tambahkan visibility
+                  zIndex: currentSlide === index ? 2 : 1 // Kelola z-index secara dinamis
+                }}
+              />
+            ))}
+            
+            {/* Spacer transparan agar frame tetap memiliki tinggi (karena semua img absolute) */}
+            <img src={photos[0]} alt="spacer" style={{ visibility: 'hidden', width: '100%' }} />
+            
           </div>
         </div>
         
