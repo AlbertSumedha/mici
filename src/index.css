@@ -1484,3 +1484,13 @@ div.fixed.top-4.right-4,
   pointer-events: none;
   z-index: 10;
 }
+
+.quote-float {
+  animation: quoteFloat 4s ease-in-out infinite;
+}
+
+@keyframes quoteFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}

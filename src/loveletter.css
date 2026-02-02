@@ -1,0 +1,51 @@
+/* Floating Hearts */
+.heart-floating {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0.6;
+  animation: floatHeart 6s infinite ease-in-out;
+}
+
+.heart-floating:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.heart-floating:nth-child(3) {
+  animation-delay: 4s;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Loopy Sticker Movement */
+.loopy-sticker {
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  width: 140px;
+  opacity: 0.85;
+  pointer-events: none;
+  animation: loopyFloat 4s ease-in-out infinite;
+}
+
+@keyframes loopyFloat {
+  0% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateX(12px) rotate(2deg);
+  }
+  100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+

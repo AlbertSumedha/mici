@@ -64,7 +64,7 @@ export default function Page() {
           {yesPressed ? (
             <div className="flex flex-col items-center animate-in fade-in zoom-in duration-500">
               <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="Bear Kiss" className="h-[250px]" />
-              <div className="my-6 text-3xl md:text-5xl font-bold text-[#c44569] px-4 text-center">I love you so much mici!! ❤️</div>
+              <div className="my-6 text-3xl md:text-5xl font-bold text-[#c44569] px-4 text-center">I knew it 🥰, i love you so much miciii!! ❤️</div>
             </div>
           ) : (
             <div className="flex flex-col items-center px-4 animate-in fade-in">
