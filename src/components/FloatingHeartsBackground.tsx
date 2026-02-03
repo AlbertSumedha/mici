@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const FloatingHeartsBackground = () => {
   const [balloons, setBalloons] = useState([]);
@@ -9,7 +9,7 @@ const FloatingHeartsBackground = () => {
       id: i,
       delay: Math.random() * 10, // Jeda mulai agar tidak muncul bersamaan
       left: Math.random() * 95,
-      duration: 12 + Math.random() * 8 // Durasi 12-20 detik agar tidak cepat hilang
+      duration: 12 + Math.random() * 8, // Durasi 12-20 detik agar tidak cepat hilang
     }));
     setBalloons(balloonsData);
   }, []);
@@ -24,9 +24,9 @@ const FloatingHeartsBackground = () => {
             left: `${balloon.left}%`,
             animationDelay: `${balloon.delay}s`,
             animationDuration: `${balloon.duration}s`, // Menggunakan durasi acak
-            position: 'absolute',
-            fontSize: '2rem',
-            bottom: '-10%' // Mulai sedikit di bawah layar
+            position: "absolute",
+            fontSize: "2rem",
+            bottom: "-10%", // Mulai sedikit di bawah layar
           }}
         >
           💖

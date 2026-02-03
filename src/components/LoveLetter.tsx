@@ -28,7 +28,6 @@ const LoveLetter = () => {
 
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto gap-10 px-6 relative py-10">
-
       {/* ================= LEFT LOVE LETTER ================= */}
       <div className="w-full lg:w-[55%] z-10 animate-in slide-in-from-left-10 duration-1000">
         <div
@@ -39,18 +38,13 @@ const LoveLetter = () => {
             border: "1px solid rgba(255,255,255,0.3)",
           }}
         >
-
           {/* 💖 FLOATING HEARTS */}
           <span className="heart-floating left-6 top-10">💖</span>
           <span className="heart-floating right-10 top-20">💕</span>
           <span className="heart-floating left-20 bottom-32">💘</span>
 
           {/* 🐰 LOOPY STICKER */}
-          <img
-            src="/loopy.png"
-            alt="loopy"
-            className="loopy-sticker"
-          />
+          <img src="/loopy.png" alt="loopy" className="loopy-sticker" />
 
           <h2 className="text-3xl font-bold mb-6 text-pink-800 relative z-10">
             A Letter From My Heart
@@ -60,13 +54,14 @@ const LoveLetter = () => {
             <p className="italic text-xl text-pink-700">My Dearest mici,</p>
 
             <p className="leading-relaxed text-gray-800 text-lg">
-              Every day with you feels like a beautiful dream that I never want to wake up from.
-              You are the sunshine that brightens my darkest days.
+              Every day with you feels like a beautiful dream that I never want
+              to wake up from. You are the sunshine that brightens my darkest
+              days.
             </p>
 
             <p className="leading-relaxed text-gray-800 text-lg">
-              I promise to love you through every season of life and to create beautiful memories together.
-              You are my forever person.
+              I promise to love you through every season of life and to create
+              beautiful memories together. You are my forever person.
             </p>
 
             <div className="letter-signature mt-8 pt-4 border-t border-pink-200">
@@ -84,8 +79,10 @@ const LoveLetter = () => {
       {/* ================= RIGHT PHOTO SLIDER ================= */}
       <div className="w-full lg:w-[40%] flex flex-col items-center z-10 animate-in slide-in-from-right-10 duration-1000">
         <div className="bg-white p-4 pb-10 rounded-lg shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 w-full max-w-[400px]">
-
-          <div className="relative overflow-hidden rounded-sm bg-gray-100 w-full shadow-inner" style={{ aspectRatio: "3/4" }}>
+          <div
+            className="relative overflow-hidden rounded-sm bg-gray-100 w-full shadow-inner"
+            style={{ aspectRatio: "3/4" }}
+          >
             {photos.map((photo, index) => (
               <img
                 key={index}
@@ -119,7 +116,10 @@ const LoveLetter = () => {
       </div>
 
       {/* MODAL */}
-      <SurpriseModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <SurpriseModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

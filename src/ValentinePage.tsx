@@ -12,8 +12,6 @@ import SurpriseModal from "./components/SurpriseModal";
 import HeartAnimation from "./components/HeartAnimation";
 import ParticleHeart from "./components/ParticleHeart";
 import FloatingHeartsBackground from "./components/FloatingHeartsBackground";
-
-// PERBAIKAN 1: Pastikan Nama Import Menggunakan Huruf Kapital
 import Food from "./components/food"; 
 
 export default function Page() {
@@ -115,11 +113,13 @@ export default function Page() {
   return (
     <div className="relative min-h-screen w-full flex flex-col items-center m-0 p-0 overflow-x-hidden animate-in fade-in duration-1000">
 
+      {/* Background & Overlays */}
       <video autoPlay loop muted playsInline className="fixed top-0 left-0 w-full h-full object-cover -z-20">
         <source src="/0131.mp4" type="video/mp4" />
       </video>
       <div className="fixed top-0 left-0 w-full h-full bg-black/20 -z-10"></div>
 
+      {/* Ambient Animations */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         {balloons.map((balloon) => (
           <div
@@ -141,6 +141,7 @@ export default function Page() {
       <ParticleHeart />
       <FloatingHeartsBackground />
 
+      {/* Header Section */}
       <div className="z-20 my-8">
         <HeartAnimation />
       </div>
@@ -158,20 +159,31 @@ export default function Page() {
         </div>
       </div> 
 
-      <div className="w-full max-w-lg mt-12 z-20"><FloatingText /></div>
-      <div className="w-full max-w-7xl px-6 py-5 z-20"><LoveLetter /></div>
-      <div className="w-full max-w-4xl px-6 py-10 z-20"><SweetQuotes /></div>
+      {/* Content Sections - Layering Fix Applied Here */}
+      <div className="w-full max-w-lg mt-12 z-20 relative">
+        <FloatingText />
+      </div>
+
+      <div className="w-full max-w-7xl px-6 py-5 z-20 relative">
+        <LoveLetter />
+      </div>
+
+      {/* SweetQuotes diletakkan di z-index lebih tinggi agar tidak tertutup grid */}
+      <div className="w-full max-w-4xl px-6 py-10 z-40 relative">
+        <SweetQuotes />
+      </div>
       
-      <div className="w-full max-w-6xl px-4 mt-10 z-20">
+      {/* Grid diletakkan di z-20 dengan margin top agar ada nafas antar section */}
+      <div className="w-full max-w-6xl px-4 mt-16 z-20 relative">
         <AnimatedImageGrid />
       </div>
 
-      {/* PERBAIKAN 2: Gunakan <Food /> dengan Huruf Kapital sesuai import */}
-      <div className="w-full max-w-6xl px-4 py-10 z-20">
+      <div className="w-full max-w-6xl px-4 py-10 z-20 relative">
         <Food />
       </div>
 
-      <div className="my-20 flex flex-col items-center gap-4 z-30">
+      {/* Surprise Section */}
+      <div className="my-20 flex flex-col items-center gap-4 z-50 relative">
         <p className="text-white font-bold italic drop-shadow-md">Wait, there's one more thing... ✨</p>
         <SurpriseButton onReveal={() => setIsModalOpen(true)} />
       </div>

@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const FlowerPetals: React.FC = () => {
-  const [petals, setPetals] = useState<Array<{ id: number; left: number; delay: number; duration: number }>>([]);
+  const [petals, setPetals] = useState<
+    Array<{ id: number; left: number; delay: number; duration: number }>
+  >([]);
 
   useEffect(() => {
     // Create petals with random positions and timing
@@ -9,7 +11,7 @@ const FlowerPetals: React.FC = () => {
       id: i,
       left: Math.random() * 100,
       delay: Math.random() * 5,
-      duration: 8 + Math.random() * 4
+      duration: 8 + Math.random() * 4,
     }));
     setPetals(petalsData);
   }, []);
@@ -23,7 +25,7 @@ const FlowerPetals: React.FC = () => {
           style={{
             left: `${petal.left}%`,
             animationDelay: `${petal.delay}s`,
-            animationDuration: `${petal.duration}s`
+            animationDuration: `${petal.duration}s`,
           }}
         >
           🌸

@@ -102,7 +102,6 @@ const SurpriseModal: React.FC<SurpriseModalProps> = ({ isOpen, onClose }) => {
           }`}
         >
           <div className="bg-[#fff8f0] p-6 md:p-10 pb-20 rounded-xl shadow-inner border-l-4 border-pink-500 relative font-handwriting">
-
             {/* Falling Bouquet INSIDE */}
             <div className="absolute left-4 top-0 w-20 bouquet-fall">
               <img src="/bouquet.png" className="drop-shadow-xl" />
@@ -116,21 +115,29 @@ const SurpriseModal: React.FC<SurpriseModalProps> = ({ isOpen, onClose }) => {
             </div>
 
             <div className="space-y-4 text-gray-700 italic md:text-lg">
-              <p>In a world full of temporary things, you are my favorite forever.</p>
               <p>
-                Thank you for being the person who makes my heart feel safe and my soul feel seen.
-                You're the melody that makes my life beautiful.
+                In a world full of temporary things, you are my favorite
+                forever.
               </p>
               <p>
-                I promise to choose you, every single day, through every season and every dream we build together.
+                Thank you for being the person who makes my heart feel safe and
+                my soul feel seen. You're the melody that makes my life
+                beautiful.
+              </p>
+              <p>
+                I promise to choose you, every single day, through every season
+                and every dream we build together.
               </p>
 
               <p className="heartbeat text-center font-bold text-pink-600 mt-6 text-lg">
-                💐 Happy Valentine's Day, mici. I love you more than words can ever hold. 💐
+                💐 Happy Valentine's Day, mici. I love you more than words can
+                ever hold. 💐
               </p>
 
               <div className="mt-8 pt-4 border-t border-pink-200 text-right">
-                <p className="text-gray-500 text-sm">Forever and always yours,</p>
+                <p className="text-gray-500 text-sm">
+                  Forever and always yours,
+                </p>
                 <p className="text-xl md:text-2xl font-bold text-pink-700">
                   Your One & Only 矮子 ❤️
                 </p>

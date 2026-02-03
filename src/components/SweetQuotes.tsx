@@ -10,7 +10,7 @@ const SweetQuotes: React.FC = () => {
     "Every love story is beautiful, but ours is my favorite",
     "You make my heart skip a beat",
     "With you, I am complete",
-    "You are my today and all of my tomorrows"
+    "You are my today and all of my tomorrows",
   ];
 
   useEffect(() => {
