@@ -13,7 +13,7 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onEnter }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio("/Edd_Sheeran_-_Perfect_(mp3.pm).mp3");
+    audioRef.current = new Audio("/fallingforyou2.mp3");
     audioRef.current.loop = true;
     audioRef.current.volume = 0.5;
 
