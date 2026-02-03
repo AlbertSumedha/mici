@@ -13,6 +13,9 @@ import HeartAnimation from "./components/HeartAnimation";
 import ParticleHeart from "./components/ParticleHeart";
 import FloatingHeartsBackground from "./components/FloatingHeartsBackground";
 
+// PERBAIKAN 1: Pastikan Nama Import Menggunakan Huruf Kapital
+import Food from "./components/food"; 
+
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
@@ -20,7 +23,7 @@ export default function Page() {
   const [showMainContent, setShowMainContent] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [balloons, setBalloons] = useState([]);
+  const [balloons, setBalloons] = useState<{id: number, delay: number, left: number}[]>([]);
 
   useEffect(() => {
     if (showMainContent) {
@@ -88,7 +91,6 @@ export default function Page() {
                   Yes 💕
                 </button>
 
-                {/* LOGIKA PERBAIKAN: Tombol hilang setelah klik pesan terakhir */}
                 {noCount < noPhrases.length && (
                   <button 
                     onClick={() => setNoCount(noCount + 1)} 
@@ -110,14 +112,12 @@ export default function Page() {
     return <IntroScreen onEnter={() => setShowMainContent(true)} />;
   }
 
-  // 3. Tampilan Utama
   return (
     <div className="relative min-h-screen w-full flex flex-col items-center m-0 p-0 overflow-x-hidden animate-in fade-in duration-1000">
 
       <video autoPlay loop muted playsInline className="fixed top-0 left-0 w-full h-full object-cover -z-20">
         <source src="/0131.mp4" type="video/mp4" />
       </video>
-
       <div className="fixed top-0 left-0 w-full h-full bg-black/20 -z-10"></div>
 
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -131,7 +131,7 @@ export default function Page() {
               position: 'absolute',
               fontSize: '2rem',
               bottom: '-50px'
-            }}
+            } as React.CSSProperties}
           >
             💖
           </div>
@@ -145,41 +145,41 @@ export default function Page() {
         <HeartAnimation />
       </div>
 
-       <div className="relative z-30 flex flex-col items-center justify-center py-10">
-
+      <div className="relative z-30 flex flex-col items-center justify-center py-10">
         <div className="bg-white/20 backdrop-blur-md px-10 py-6 rounded-full border border-white/40 shadow-[0_8px_32px_0_rgba(255,107,157,0.4)]">
-
           <h1 className="text-4xl md:text-7xl font-black italic tracking-tight text-white font-serif">
-
             矮子 <span className="text-pink-200 animate-pulse">&</span> mici
-
           </h1>
-
         </div>
-
         <div className="mt-6 flex flex-col items-center gap-2">
-
           <p className="text-white font-bold tracking-[0.4em] uppercase text-sm md:text-base drop-shadow-md animate-bounce">
-
             Forever & Always
-
           </p>
-
         </div>
-
       </div> 
 
       <div className="w-full max-w-lg mt-12 z-20"><FloatingText /></div>
       <div className="w-full max-w-7xl px-6 py-5 z-20"><LoveLetter /></div>
       <div className="w-full max-w-4xl px-6 py-10 z-20"><SweetQuotes /></div>
-      <div className="w-full max-w-6xl px-4 mt-10 z-20"><AnimatedImageGrid /></div>
+      
+      <div className="w-full max-w-6xl px-4 mt-10 z-20">
+        <AnimatedImageGrid />
+      </div>
+
+      {/* PERBAIKAN 2: Gunakan <Food /> dengan Huruf Kapital sesuai import */}
+      <div className="w-full max-w-6xl px-4 py-10 z-20">
+        <Food />
+      </div>
 
       <div className="my-20 flex flex-col items-center gap-4 z-30">
         <p className="text-white font-bold italic drop-shadow-md">Wait, there's one more thing... ✨</p>
         <SurpriseButton onReveal={() => setIsModalOpen(true)} />
       </div>
 
-      <footer className="text-center py-20 text-white/60 italic text-sm z-20">Made with ❤️ for mici</footer>
+      <footer className="text-center py-20 text-white/60 italic text-sm z-20">
+        Made with ❤️ for mici
+      </footer>
+
       <SurpriseModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
