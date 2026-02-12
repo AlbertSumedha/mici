@@ -10,7 +10,7 @@ const AnimatedImageGrid: React.FC = () => {
     { src: "/photo4.jpeg", caption: "You Are My Everything", delay: 0.3 },
     { src: "/photo5.jpeg", caption: "Love Beyond Words", delay: 0.4 },
     { src: "/photo6.jpeg", caption: "Beautiful Like You", delay: 0.5 },
-    { src: "/photo7.jpeg", caption: "Our Special Bond", delay: 0.6 },
+    { src: "/image1.jpeg", caption: "Our Special Bond", delay: 0.6 },
     { src: "/photo8.jpeg", caption: "Always Together", delay: 0.7 },
     { src: "/photo9.jpeg", caption: "To More Adventures", delay: 0.8 },
     { src: "/photo10.jpeg", caption: "My One and Only", delay: 0.9 },
