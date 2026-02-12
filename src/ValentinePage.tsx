@@ -188,7 +188,7 @@ export default function Page() {
         <SurpriseButton onReveal={() => setIsModalOpen(true)} />
       </div>
 
-      <footer className="text-center py-20 text-white/60 italic text-sm z-20">
+      <footer className="text-center py-20 text-white/200 italic text-sm z-50">
         Made with ❤️ for mici
       </footer>
 
